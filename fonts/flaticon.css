@@ -58,7 +58,7 @@ margin-left: 20px;
 .flaticon-font:before { content: "\f119"; }
 .flaticon-speech-bubble:before { content: "\f11a"; }
 .flaticon-face:before { content: "\f11b"; }
-.flaticon-facial:before { content: "\f11c"; }
+/* .flaticon-facial:before { content: "\f11c"; } */
 .flaticon-data:before { content: "\f11d"; }
 .flaticon-facial-recognition:before { content: "\f11e"; }
 .flaticon-right-arrow:before { content: "\f11f"; }

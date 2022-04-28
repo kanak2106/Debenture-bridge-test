@@ -1357,7 +1357,12 @@ blockquote i:before {
     07. About Section CSS
 -------------------------------------*/
 .neuron-about .single-about {
-  padding: 40px 25px 25px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 25px 25px;
   background: #ffffff;
   border-radius: 10px;
   transition: all 0.5s ease 0s;
@@ -1378,23 +1383,31 @@ blockquote i:before {
   transition: all 0.7s ease 0s;
   border-radius: 5px;
 }
-.neuron-about .single-about .about-icon {
-  margin-bottom: 25px;
+.neuron-about .single-about .image {
+  display: flex;
+  justify-content: center;
+}
+.neuron-about .single-about img {
+  margin-bottom: 10px;
   position: relative;
   z-index: 1;
   transition: all 0.7s ease 0s;
 }
-.neuron-about .single-about .about-icon i:before {
+.neuron-about .single-about img i:before {
   margin: 0;
   font-size: 70px;
   line-height: 1;
   background-clip: text;
   -webkit-background-clip: text;
   color: rgba(0, 0, 0, 0);
-  background-image: linear-gradient(0deg, #09c778, #01a0f9);
+  /* background-image: linear-gradient(0deg, #09c778, #01a0f9); */
   transition: all 0.7s ease 0s;
 }
 .neuron-about .single-about .about-title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 1;
   transition: all 0.7s ease 0s;
@@ -1404,36 +1417,110 @@ blockquote i:before {
   font-weight: 600;
   transition: all 0.7s ease 0s;
 }
+
+/* use reverse flexbox to take advantage of flex-direction: reverse */
+.neuron-about .single-about .about-title .star-rating {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: auto;
+  position: relative;
+}
+/* hide the inputs */
+.neuron-about .single-about .about-title .star-rating input {
+  display: none;
+}
+/* set properties of all labels */
+.neuron-about .single-about .about-title .star-rating > label {
+  width: 30px;
+  height: 30px;
+  font-family: Arial;
+  font-size: 30px;
+  transition: 0.2s ease;
+  color: orange;
+}
+/* give label a hover state */
+.neuron-about .single-about .about-title .star-rating label:hover {
+  color: #ff69b4;
+  transition: 0.2s ease;
+}
+.neuron-about .single-about .about-title .star-rating label:active::before {
+  transform:scale(1.1);
+}
+
+/* set shape of unselected label */
+.neuron-about .single-about .about-title .star-rating label::before {
+  content: '\2606';
+  position: absolute;
+  top: 0px;
+  line-height: 26px;
+}
+/* set full star shape for checked label and those that come after it */
+.neuron-about .single-about .about-title .star-rating input:checked ~ label:before {
+  content:'\2605';
+}
+
+@-moz-document url-prefix() {
+  .neuron-about .single-about .about-title .star-rating input:checked ~ label:before {
+  font-size: 36px;
+  line-height: 21px;
+  }
+}
+
 .neuron-about .single-about .about-desc {
   position: relative;
   z-index: 1;
   transition: all 0.7s ease 0s;
 }
 .neuron-about .single-about .about-desc .desc-txt {
+  font-size: 17px;
   margin: 0;
   transition: all 0.7s ease 0s;
+}
+.neuron-about .single-about .about-desc .kuch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.neuron-about .single-about .about-desc .kuch {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  width: 100px;
+  height: 30px;
+  background-color: #8dd3e0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 0;
+  transition: ease-out 0.3s;
+  cursor: pointer;
+}
+.neuron-about .single-about .about-desc .kuch:hover {
+  box-shadow: inset 200px 0 0 0 #137FE0;
+  color: white;
 }
 .neuron-about .single-about.style2 {
   padding: 62px 30px 60px;
 }
 .neuron-about .single-about.style3 {
-  padding: 50px 40px 40px;
+  /* padding: 50px 40px 40px; */
   border-radius: unset;
 }
-.neuron-about .single-about.style3 .about-icon {
-  margin-bottom: 30px;
-  height: 100px;
-  width: 100px;
+.neuron-about .single-about.style3 img {
+  /* margin-bottom: 30px; */
+  height: 50%;
+  width: 50%;
   text-align: center;
   border-radius: 50%;
   transition: all 0.7s ease 0s;
 }
-.neuron-about .single-about.style3 .about-icon i:before {
+.neuron-about .single-about.style3 img i:before {
   font-size: 50px;
   line-height: 100px;
   color: #ffffff;
 }
-.neuron-about .single-about.style3 .about-icon:before {
+.neuron-about .single-about.style3 img:before {
   content: "";
   position: absolute;
   background: linear-gradient(-90deg, #1292c2, #00aeef);
@@ -1442,8 +1529,8 @@ blockquote i:before {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  width: 15rem;
+  height: 20rem;
   border-radius: 50%;
   z-index: -1;
   transition: all 0.7s ease 0s;
@@ -1451,25 +1538,25 @@ blockquote i:before {
 .neuron-about .single-about.style3 .about-title .title {
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .neuron-about .single-about.style3:before {
   background: linear-gradient(-90deg, #1292c2, #00aeef);
 }
-.neuron-about .single-about.style3:hover .about-icon {
+.neuron-about .single-about.style3:hover img {
   background: #ffffff;
 }
-.neuron-about .single-about.style3:hover .about-icon:before {
+.neuron-about .single-about.style3:hover img:before {
   opacity: 0;
 }
-.neuron-about .single-about.style3:hover .about-icon i:before {
+.neuron-about .single-about.style3:hover img i:before {
   color: rgba(0, 0, 0, 0);
   background-image: linear-gradient(-90deg, #1292c2, #00aeef);
 }
 .neuron-about .single-about.style3:hover:before {
   opacity: 1;
 }
-.neuron-about .single-about.style3.features .about-icon:before {
+.neuron-about .single-about.style3.features img:before {
   background: linear-gradient(-41deg, #09c778, #01a0f9);
 }
 .neuron-about .single-about.style3.features:before {
@@ -1505,10 +1592,10 @@ blockquote i:before {
   padding: 65px 30px 85px;
   text-align: center;
 }
-.neuron-about .single-about.style4.icon-style .about-icon {
+.neuron-about .single-about.style4.icon-style img {
   margin-bottom: 15px;
 }
-.neuron-about .single-about.style4.icon-style .about-icon i:before {
+.neuron-about .single-about.style4.icon-style img i:before {
   background-image: linear-gradient(0deg, #6669e6, #12b4c8);
   font-size: 60px;
 }

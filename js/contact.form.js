@@ -47,12 +47,12 @@ jQuery(document).ready(function($) {
             $(formMessages).removeClass('success');
             $(formMessages).addClass('error');
 
-            // Set the message text.
-            if (data.responseText !== '') {
-                $(formMessages).text(data.responseText);
-            } else {
-                $(formMessages).text('Oops! An error occured and your message could not be sent.');
-            }
+            // // Set the message text.
+            // if (data.responseText !== '') {
+            //     $(formMessages).text(data.responseText);
+            // // } else {
+            // //     $(formMessages).text(' Your application has been submitted successfully!!');
+            // // }
         });
     });
 
